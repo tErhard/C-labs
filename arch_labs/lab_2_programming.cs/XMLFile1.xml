@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Baggages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<baggages>
+		<Baggage>
+			<number>15</number>
+			<weight>20</weight>
+		</Baggage>
+		<Baggage>
+			<number>16</number>
+			<weight>40</weight>
+		</Baggage>
+		<Baggage>
+			<number>9</number>
+			<weight>10</weight>
+		</Baggage>
+		<Baggage>
+			<number>3</number>
+			<weight>8</weight>
+		</Baggage>
+		<Baggage>
+			<number>11</number>
+			<weight>45</weight>
+		</Baggage>
+		<Baggage>
+			<number>5</number>
+			<weight>32</weight>
+		</Baggage>
+	</baggages>
+</Baggages>
