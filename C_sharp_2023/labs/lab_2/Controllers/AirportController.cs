@@ -88,5 +88,50 @@ namespace lab_1_pro.Controllers
                 return Ok(airport);
             }
         }
+        
+         [HttpGet("orderBy")]
+        public async Task<ActionResult<List<Airport>>> Get(string order, string column)
+        {
+            if (order == "asc")
+            {   
+
+                var airports = await _context.Airport.OrderBy(
+                    airport => airport.GetType().GetProperty(column).GetValue(airport)
+
+                ).ToListAsync();
+                return Ok(airports);
+            }
+            else
+            {
+                var airports = await _context.Airport.OrderByDescending(
+
+                    airport => airport.Name
+                ).ToListAsync();
+                return Ok(airports);
+            }
+        }
+
+        [HttpGet("filterBy")]
+        public async Task<ActionResult<List<Airport>>> Get(string department)
+        {
+            var airports = await _context.Airport.Where(
+                airport => airport.Department == department
+            ).ToListAsync();
+            return Ok(airports);
+        }
+
+        [HttpGet("pages")]
+        public async Task<ActionResult<List<Airport>>> Get(float pageItems, int page)
+        {
+
+            var pageCount = Math.Ceiling(_context.Airport.Count() / pageItems);
+
+            var airports = await _context.Airport
+                .Skip((page - 1) * (int)pageItems)
+                .Take((int)pageItems)
+                .ToListAsync();
+
+            return Ok(airports);
+        }
     }
 }
